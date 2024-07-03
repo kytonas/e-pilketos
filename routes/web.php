@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KandidatController;
 use App\Http\Controllers\PemilihController;
+use App\Http\Controllers\SuaraController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,7 @@ Route::get('/admin', function () {
 Route::group(['prefix' => 'admin'], function () {
    Route::resource('kandidat', KandidatController::class);
    Route::resource('pemilih', PemilihController::class);
+   Route::resource('suara', SuaraController::class);
 });
 
 

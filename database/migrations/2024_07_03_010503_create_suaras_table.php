@@ -13,18 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('pemilihs', function (Blueprint $table) {
+        Schema::create('suaras', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
-            $table->bigInteger('nis')->unique();
-            $table->string('kelas');
-            $table->string('jurusan');
-            $table->string('password');
-            $table->boolean('status')->default(0);
+            $table->unsignedBigInteger('id_pemilih');
+            $table->unsignedBigInteger('id_kandidat');
+            $table->foreign('id_pemilih')->references('id')->on('pemilihs')->onDelete('cascade');
+            $table->foreign('id_kandidat')->references('id')->on('kandidats')->onDelete('cascade');
             $table->timestamps();
         });
     }
- 
+
     /**
      * Reverse the migrations.
      *
@@ -32,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pemilihs');
+        Schema::dropIfExists('suaras');
     }
 };

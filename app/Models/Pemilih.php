@@ -19,5 +19,10 @@ class Pemilih extends Model
             'password' => 'hashed',
         ]; 
     }
+
+    public function pemilih()
+    {
+        return $this->hasOne(Suara::class);
+    }
 }
  

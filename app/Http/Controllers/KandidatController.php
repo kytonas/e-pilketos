@@ -36,16 +36,16 @@ class KandidatController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'no_urut' => ['required', 'integer', 'max:255'],
-            'nama_ketua' => ['required', 'string', 'max:255'],
-            'nama_wakil' => ['required', 'string', 'max:255'],
-            'visi' => ['required', 'string'],
-            'misi' => ['required', 'string'],
-            'jurusan' => ['required', 'string', 'max:255'],
-            'tahun_ajaran' => ['required', 'string', 'max:255'],
-            'foto' => ['required', 'string'],
-        ]);
+        // $request->validate([
+        //     'no_urut' => ['required', 'integer', 'max:255'],
+        //     'nama_ketua' => ['required', 'string', 'max:255'],
+        //     'nama_wakil' => ['required', 'string', 'max:255'],
+        //     'visi' => ['required', 'string'],
+        //     'misi' => ['required', 'string'],
+        //     'jurusan' => ['required', 'string', 'max:255'],
+        //     'tahun_ajaran' => ['required', 'string', 'max:255'],
+        //     'foto' => ['required', 'string'],
+        // ]);
 
         $kandidat = new Kandidat;
         $kandidat->no_urut = $request->no_urut;
@@ -123,7 +123,7 @@ class KandidatController extends Controller
         $kandidat->tahun_ajaran = $request->tahun_ajaran;
 
         //upload image
-        if ($request->hasFile('foto')) {
+        if ($request->hasFile('foto')) { 
             $kandidat -> deleteImage();
             $img = $request->file('foto');
             $name = rand(1000, 9999) . $img->getClientOriginalName();

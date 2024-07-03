@@ -118,8 +118,13 @@
                                                     <input type="text" class="form-control" name="kelas" required/>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="jurusan">Jurusan</label>
-                                                    <input type="text" class="form-control" name="jurusan" required/>
+                                                    <label for="jurusan" class="form-label">Jurusan</label>
+                                                    <select id="jurusan" name="jurusan" class="form-select" required>
+                                                        <option value="" disabled selected>Pilih</option>
+                                                        <option value="RPL">RPL</option>
+                                                        <option value="TKRO">TKRO</option>
+                                                        <option value="TBSM">TBSM</option>
+                                                    </select>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="password">Password</label>
@@ -128,13 +133,13 @@
                                                 <div class="form-group">
                                                     <label for="password_confirmation">Konfirmasi Password</label>
                                                     <input type="password" class="form-control" name="password_confirmation" required/>
-                                                </div>
+                                                </div> 
                                                 <div class="form-group">
                                                     <label for="status" class="form-label">Status</label>
                                                     <select id="status" name="status" class="form-select" required>
                                                         <option value="" disabled selected>Pilih</option>
-                                                        <option value="voted">Voted</option>
-                                                        <option value="unvoted">Unvoted</option>
+                                                        <option value=1>Sudah Memilih</option>
+                                                        <option value=0>Belum Memilih</option>
                                                     </select>
                                                 </div>
                                             </div>

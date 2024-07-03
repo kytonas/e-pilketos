@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Ubah Data Pemilih</title>
+    <title>Tambah Data Suara</title>
     <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport" />
     <link rel="icon" href="{{ asset('backend/assets/img/kaiadmin/favicon.ico') }}" type="image/x-icon" />
 
@@ -73,7 +73,7 @@
             <div class="container">
                 <div class="page-inner">
                     <div class="page-header">
-                        <h3 class="fw-bold mb-3">Pemilih</h3>
+                        <h3 class="fw-bold mb-3">Suara</h3>
                         <ul class="breadcrumbs mb-3">
                             <li class="nav-home">
                                 <a href="{{ url('/admin') }}">
@@ -84,13 +84,13 @@
                                 <i class="icon-arrow-right"></i>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('pemilih.index') }}">Pemilih</a>
+                                <a href="{{ route('suara.index') }}">Suara</a>
                             </li>
                             <li class="separator">
                                 <i class="icon-arrow-right"></i>
                             </li>
                             <li class="nav-item">
-                                <a href="#">Ubah Data</a>
+                                <a href="#">Tambah Data</a>
                             </li>
                         </ul>
                     </div>
@@ -98,57 +98,43 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <div class="card-title">Ubah data</div>
+                                    <div class="card-title">Tambah data</div>
                                 </div>
                                 <div class="card-body">
-                                    <form action="{{ route('pemilih.update', $pemilih->id) }}" method="POST">
+                                    <form action="{{ route('suara.store') }}" method="POST">
                                         @csrf
-                                        @method('PUT')
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <label for="nama">Nama</label>
-                                                    <input type="text" class="form-control" name="nama" 
-                                                    value="{{$pemilih->nama}}"/>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="nis">NIS</label>
-                                                    <input type="text" class="form-control" name="nis" 
-                                                    value="{{$pemilih->nis}}"/>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="kelas">Kelas</label>
-                                                    <input type="text" class="form-control" name="kelas" 
-                                                    value="{{$pemilih->kelas}}"/>
-                                                </div>
-                                                 <div class="form-group">
-                                                    <label for="jurusan" class="form-label">Jurusan</label>
-                                                    <select id="jurusan" name="jurusan" class="form-select" required>
-                                                        <option value="" disabled selected>{{$pemilih->jurusan}}</option>
-                                                        <option value="RPL">RPL</option>
-                                                        <option value="TKRO">TKRO</option>
-                                                        <option value="TBSM">TBSM</option>
+                                                    <label for="status" class="form-label">Pemilih</label>
+                                                    <select id="status" name="id_pemilih" class="form-select" required>
+                                                        <option value=""></option>
+                                                        @foreach ($pemilih as $data)
+                                                            <option value="{{$data->id}}">
+                                                                {{$data->nama}}
+                                                            </option>
+                                                        @endforeach
                                                     </select>
                                                 </div>
+                                            </div>
+                                            <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <label for="password">Password</label>
-                                                    <input type="password" class="form-control" name="password" 
-                                                    value="{{$pemilih->password}}"/>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="status" class="form-label">Status</label>
-                                                    <select id="status" name="status" class="form-select" > 
-                                                        <option value="">{{$pemilih->status}}</option>
-                                                        <option value=1 {{ $pemilih->status == 1 ? 'selected' : '' }}>Sudah Pilih</option>
-                                                        <option value=0 {{ $pemilih->status == 2 ? 'selected' : '' }}>Belum Pilih</option>
+                                                    <label for="status" class="form-label">Kandidat</label>
+                                                    <select id="status" name="id_kandidat" class="form-select" required>
+                                                        <option value=""></option>
+                                                        @foreach ($kandidat as $data)
+                                                            <option value="{{$data->id}}">
+                                                                {{$data->nama_ketua}}
+                                                            </option>
+                                                        @endforeach
                                                     </select>
                                                 </div>
                                             </div>
                                         </div>
-                                </div> 
+                                </div>
                                 <div class="card-action">
-                                    <button class="btn btn-success" type="submit">Ubah</button>
-                                    <a href="{{ url('admin/pemilih') }}" class="btn btn-danger">Kembali</a>
+                                    <button class="btn btn-success" type="submit">Tambah</button>
+                                    <a href="{{ url('admin/suara') }}" class="btn btn-danger">Kembali</a>
                                     </form>
                                 </div>
                             </div>

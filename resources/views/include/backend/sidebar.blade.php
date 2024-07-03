@@ -63,6 +63,11 @@
                         <span class="sub-item">Pemilih</span>
                       </a>
                     </li>
+                    <li>
+                      <a href="{{route('suara.index')}}">
+                        <span class="sub-item">Suara</span>
+                      </a>
+                    </li>
                   </ul>
                 </div>
               </li>

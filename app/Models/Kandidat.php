@@ -16,4 +16,9 @@ class Kandidat extends Model
             return unlink(public_path('images/kandidat' . $this->foto));
         }
     }
+
+    public function pemilih()
+    {
+        return $this->hasOne(Suara::class);
+    }
 }

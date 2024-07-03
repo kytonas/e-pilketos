@@ -108,7 +108,7 @@
                                     <h4 class="card-title">Kandidat</h4>
                                     <div class="d-flex align-items-center">
                                         <a href="{{ route('kandidat.create') }}"
-                                            class="btn btn-primary btn-round ms-auto" data-bs-target="#addRowModal">
+                                             class="btn btn-primary btn-round ms-auto" data-bs-target="#addRowModal">
                                             <i class="fa fa-plus"></i>
                                             Tambah Data
                                         </a>
@@ -149,12 +149,12 @@
                                                             @method('DELETE')
                                                             <td>
                                                                 <a href="{{ route('kandidat.edit', $data->id) }}"
-                                                                    class="btn btn-success">Edit</a>
+                                                                    class="btn btn-success">Ubah</a>
                                                                 <a href="{{ route('kandidat.show', $data->id) }}"
-                                                                    class="btn btn-warning">Show</a>
+                                                                    class="btn btn-warning">Lihat</a>
                                                                 <button type="submit" class="btn btn-danger"
                                                                     onclick="return confirm('Apakah anda yakin ingin menghapus data ini ?')">
-                                                                    Delete
+                                                                    Hapus
                                                                 </button>
                                                             </td>
                                                         </form>

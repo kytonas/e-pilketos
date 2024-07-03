@@ -3,7 +3,7 @@
 
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Tabel Pemilih</title>
+    <title>Tabel Suara</title>
     <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport" />
     <link rel="icon" href="{{ asset('backend/assets/img/kaiadmin/favicon.ico') }}" type="image/x-icon" />
 
@@ -75,7 +75,7 @@
             <div class="container">
                 <div class="page-inner">
                     <div class="page-header">
-                        <h3 class="fw-bold mb-3">Pemilih</h3>
+                        <h3 class="fw-bold mb-3">Suara</h3>
                         <ul class="breadcrumbs mb-3">
                             <li class="nav-home">
                                 <a href="{{ url('admin') }}">
@@ -92,7 +92,7 @@
                                 <i class="icon-arrow-right"></i>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('pemilih.index') }}">Pemilih</a>
+                                <a href="{{ route('suara.index') }}">Suara</a>
                             </li>
                         </ul>
                     </div>
@@ -105,9 +105,9 @@
                                             </div>
                                         @endif
                                 <div class="card-header">
-                                    <h4 class="card-title">Pemilih</h4>
+                                    <h4 class="card-title">Suara</h4>
                                     <div class="d-flex align-items-center">
-                                        <a href="{{ route('pemilih.create') }}"
+                                        <a href="{{ route('suara.create') }}"
                                             class="btn btn-primary btn-round ms-auto" data-bs-target="#addRowModal">
                                             <i class="fa fa-plus"></i>
                                             Tambah Data
@@ -120,11 +120,9 @@
                                             <thead>
                                                 <tr>  
                                                     <th>#</th>
-                                                    <th>Nama</th>  
-                                                    <th>NIS</th>
-                                                    <th>Kelas</th>
-                                                    <th>Jurusan</th>
-                                                    <th>Status</th>
+                                                    <th>Pemilih</th>  
+                                                    <th>#</th>
+                                                    <th>No. Urut</th>
                                                     <th>Aksi</th>
                                                 </tr>
                                             </thead>
@@ -132,29 +130,21 @@
                                                 @php
                                                     $no = 1;
                                                 @endphp
-                                                @foreach ($pemilih as $data)
+                                                @foreach ($suara as $data)
                                                     <tr>
                                                         <th>{{ $no++ }}</th>
-                                                        <td>{{ $data->nama }}</td>
-                                                        <td>{{ $data->nis }}</td>
-                                                        <td>{{ $data->kelas }}</td>
-                                                        <td>{{ $data->jurusan }}</td>
-                                                        <td>
-                                                            @if ( $data->status == 1)
-                                                                <p class="text-success">Sudah Pilih</p>
-                                                            @else 
-                                                                <p class="text-danger">Belum pilih</p>
-                                                            @endif
+                                                        <td>{{ $data->pemilih->nama}}</td>
+                                                        <td><h6>MEMILIH</h6></td>
+                                                        <td>{{ $data->kandidat->no_urut }}</td>
                                                         </td>
-                                                        </td>
-                                                        <form action="{{ route('pemilih.destroy', $data->id) }}"
+                                                        <form action="{{ route('suara.destroy', $data->id) }}"
                                                             method="POST">
                                                             @csrf
                                                             @method('DELETE')
                                                             <td>
-                                                                <a href="{{ route('pemilih.edit', $data->id) }}"
+                                                                <a href="{{ route('suara.edit', $data->id) }}"
                                                                     class="btn btn-success">Ubah</a>
-                                                                <a href="{{ route('pemilih.show', $data->id) }}"
+                                                                <a href="{{ route('suara.show', $data->id) }}"
                                                                     class="btn btn-warning">Lihat</a>
                                                                 <button type="submit" class="btn btn-danger"
                                                                     onclick="return confirm('Apakah anda yakin ingin menghapus data ini ?')">

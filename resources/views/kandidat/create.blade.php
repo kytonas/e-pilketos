@@ -134,8 +134,13 @@
                                                 </textarea>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="jurusan">Jurusan</label>
-                                                     <input type="text" class="form-control" name="jurusan" />
+                                                    <label for="jurusan" class="form-label">Jurusan</label>
+                                                    <select id="jurusan" name="jurusan" class="form-select" required>
+                                                        <option value="" disabled selected>Pilih</option>
+                                                        <option value="RPL">RPL</option>
+                                                        <option value="TKRO">TKRO</option>
+                                                        <option value="TBSM">TBSM</option>
+                                                    </select>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="tahun_ajaran">Tahun Ajaran</label>
