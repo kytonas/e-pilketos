@@ -5,6 +5,8 @@ use App\Http\Controllers\KandidatController;
 use App\Http\Controllers\PemilihController;
 use App\Http\Controllers\SuaraController;
 use App\Http\Controllers\UservotingController;
+use App\Http\Controllers\PemilihLoginController;
+use App\Http\Middleware\PemilihMiddleware;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +28,11 @@ Route::get('/get-manifesto/{id}', [UservotingController::class, 'show']);
 Route::get('/success', function (){
     return view('uservoting.success');
 });
+
+Route::get('pemilih/login', [App\Http\Controllers\Auth\PemilihLoginController::class, 'showLoginForm'])->name('pemilih.login');
+Route::post('pemilih/login', [App\Http\Controllers\Auth\PemilihLoginController::class, 'login'])->name('pemilih.login.submit');
+Route::post('pemilih/logout', [App\Http\Controllers\Auth\PemilihLoginController::class, 'logout'])->name('pemilih.logout');
+
 
 
 Route::get('/admin', function () {
