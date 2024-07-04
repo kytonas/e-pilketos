@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KandidatController;
 use App\Http\Controllers\PemilihController;
 use App\Http\Controllers\SuaraController;
+use App\Http\Controllers\UservotingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,9 +17,16 @@ use App\Http\Controllers\SuaraController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     return view('uservoting.index');
+// });
+
+Route::get('/', [UservotingController::class, 'index'])->name('voter');
+Route::get('/get-manifesto/{id}', [UservotingController::class, 'show']);
+Route::get('/success', function (){
+    return view('uservoting.success');
 });
+
 
 Route::get('/admin', function () {
     return view('layouts.backend');
