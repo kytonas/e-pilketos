@@ -27,7 +27,7 @@ class SuaraController extends Controller
      */
     public function create()
     {
-        $pemilih = Pemilih::all();
+        $pemilih = Pemilih::where('status', 0)->get();
         $kandidat = Kandidat::all();
         return view('suara.create', compact('pemilih', 'kandidat'));
     }
@@ -45,10 +45,21 @@ class SuaraController extends Controller
             'id_kandidat' => ['required', 'integer'],
         ]);
         
+        $pemilih = Pemilih::findOrFail($request->id_pemilih);
+
+        if ($pemilih -> status == 1) {
+            return redirect()->back()->with('error', 'Anda sudah Melakukan voting');
+        }
+
+
         $suara = new Suara();
         $suara -> id_pemilih = $request-> id_pemilih;
         $suara -> id_kandidat = $request-> id_kandidat;
         $suara -> save();
+
+        $pemilih->status = 1;
+        $pemilih->save();
+
         return redirect()->route('suara.index')->with('success', 'Data Berhasil ditambahkan!');
         
     }
@@ -74,7 +85,7 @@ class SuaraController extends Controller
     public function edit($id)
     {
         $suara = Suara::findOrFail($id);
-        $pemilih = Pemilih::all();
+        $pemilih = Pemilih::where('status', 0)->get();
         $kandidat = Kandidat::all();
         return view('suara.edit', compact('suara', 'pemilih', 'kandidat'));
     }
@@ -107,7 +118,7 @@ class SuaraController extends Controller
      * @param  \App\Models\Suara  $suara
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Suara $id)
+    public function destroy($id)
     {
         $suara = Suara::findOrFail($id);
         $suara->delete();

@@ -17,10 +17,19 @@ class PemilihMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!Session::has('pemilih')) {
-            return redirect()->route('pemilih.login');
-        };
+        if (Session::has('pemilih')) {
+            $pemilihId = Session::get('pemilih');
+            $pemilih = \App\Models\Pemilih::findOrFail($pemilihId);
 
-        return $next($request);
+            if ($pemilih) {
+                return $next($request);
+            }
+
+            // Jika pemilih tidak ditemukan, hapus session dan redirect ke halaman login
+            Session::forget('pemilih');
+        }
+
+        // Jika session 'pemilih' tidak ada, redirect ke halaman login
+        return redirect()->route('pemilih.login');
     }
 }
