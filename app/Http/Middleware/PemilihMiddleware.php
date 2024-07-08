@@ -22,6 +22,8 @@ class PemilihMiddleware
             $pemilih = \App\Models\Pemilih::findOrFail($pemilihId);
 
             if ($pemilih) {
+                // Set pemilih pada request agar dapat diakses di controller
+                $request->attributes->set('pemilih', $pemilih);
                 return $next($request);
             }
 

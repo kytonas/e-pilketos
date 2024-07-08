@@ -1,4 +1,4 @@
-@extends('layouts.app')
+{{-- @extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -70,4 +70,59 @@
         </div>
     </div>
 </div>
-@endsection
+@endsection --}}
+<title>Login</title>
+<link rel="icon" href="{{ asset('backend/assets/img/kaiadmin/favicon.ico') }}" type="image/x-icon" />
+<link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://unpkg.com/bs-brain@2.0.4/components/logins/login-5/assets/css/login-5.css">
+<section class=" p-md-4 p-xl-5">
+    <div class="container">
+        <div class="card border-light-subtle shadow-sm">
+            <div class="row>
+        <div class="col-12 col-md-6">
+                <div class="card-body p-3 p-md-4 p-xl-5">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="mb-5">
+                                <h3>Log in</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <form action="{{ route('login') }}" method="POST">
+                        @csrf
+                        <div class="row gy-3 gy-md-4 overflow-hidden">
+                            <div class="col-12">
+                                <label for="nis" class="form-label">E-Mail<span
+                                        class="text-danger">*</span></label>
+                                <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" id="email" required>
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="col-12">
+                                <label for="password" class="form-label">Password <span
+                                        class="text-danger">*</span></label>
+                                <input type="password" class="form-control @error('password') is-invalid @enderror"
+                                    name="password" id="password" value="" required>
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="col-12">
+                                <div class="d-grid">
+                                    <button class="btn bsb-btn-xl btn-primary"
+                                        type="submit">{{ __('Login') }}</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>

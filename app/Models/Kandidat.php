@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Kandidat extends Model
 {
     use HasFactory;
-    protected $fillable = ['id', 'no_urut', 'nama_ketua', 'nama_wakil', 'kelas', 'visi', 'misi', 'jurusan', 'tahun_ajaran', 'foto'];
+    protected $fillable = ['id', 'no_urut', 'nama_ketua', 'nama_wakil', 'kelas', 'visi', 'misi', 'jurusan', 'tahun_ajaran', 'foto', 'suara'];
     public $timestamp = true;
 
     public function deleteImage(){
@@ -17,8 +17,8 @@ class Kandidat extends Model
         }
     }
 
-    public function pemilih()
+    public function suara()
     {
-        return $this->hasOne(Suara::class);
+        return $this->hasOne(Suara::class, 'id_kandidat');
     }
 }

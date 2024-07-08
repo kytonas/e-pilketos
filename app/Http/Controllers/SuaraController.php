@@ -45,20 +45,12 @@ class SuaraController extends Controller
             'id_kandidat' => ['required', 'integer'],
         ]);
         
-        $pemilih = Pemilih::findOrFail($request->id_pemilih);
-
-        if ($pemilih -> status == 1) {
-            return redirect()->back()->with('error', 'Anda sudah Melakukan voting');
-        }
-
 
         $suara = new Suara();
         $suara -> id_pemilih = $request-> id_pemilih;
         $suara -> id_kandidat = $request-> id_kandidat;
         $suara -> save();
 
-        $pemilih->status = 1;
-        $pemilih->save();
 
         return redirect()->route('suara.index')->with('success', 'Data Berhasil ditambahkan!');
         

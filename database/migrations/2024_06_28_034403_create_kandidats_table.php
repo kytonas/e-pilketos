@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('jurusan');
             $table->string('tahun_ajaran');
             $table->string('foto');
+            $table->integer('suara')->default(0);
             $table->timestamps();
         });
     }
