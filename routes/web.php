@@ -5,6 +5,7 @@ use App\Http\Controllers\KandidatController;
 use App\Http\Controllers\PemilihController;
 use App\Http\Controllers\SuaraController;
 use App\Http\Controllers\UservotingController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,11 +35,12 @@ Route::get('pemilih/login', [PemilihLoginController::class, 'showLoginForm'])->n
 Route::post('pemilih/login', [PemilihLoginController::class, 'login'])->name('pemilih.login.submit');
 Route::post('pemilih/logout', [PemilihLoginController::class, 'logout'])->name('pemilih.logout');
 
-Route::get('/admin', function () {
-    return view('layouts.backend');
-})->middleware('auth');
+// Route::get('/admin', function () {
+//     return view('layouts.backend');
+// })->middleware('auth');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
+    Route::get('dashboard',[DashboardController::class, 'index']);
     Route::resource('kandidat', KandidatController::class);
     Route::resource('pemilih', PemilihController::class);
     Route::resource('suara', SuaraController::class);

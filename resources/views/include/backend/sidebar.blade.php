@@ -2,13 +2,8 @@
         <div class="sidebar-logo">
           <!-- Logo Header -->
           <div class="logo-header" data-background-color="dark">
-            <a href="{{url('admin')}}" class="logo">
-              <img
-                src="{{asset('backend/assets/img/kaiadmin/logo_light.svg')}}"
-                alt="navbar brand"
-                class="navbar-brand"
-                height="20"
-              />
+            <a href="{{url('admin/dashboard')}}" class="logo">
+              <h1 class="text-white">E-Pilketos</h1>
             </a>
             <div class="nav-toggle">
               <button class="btn btn-toggle toggle-sidebar">
@@ -30,7 +25,7 @@
               <li class="nav-item active">
                 <a
                   data-bs-toggle="collapse"
-                  href="{{url('/admin')}}"
+                  href="{{url('/admin/dashboard')}}"
                   class="collapsed"
                   aria-expanded="false"
                 >
@@ -43,12 +38,12 @@
                 <span class="sidebar-mini-icon">
                   <i class="fa fa-ellipsis-h"></i>
                 </span>
-                <h4 class="text-section">Components</h4>
+                <h4 class="text-section">Komponen</h4>
               </li>
               <li class="nav-item">
                 <a data-bs-toggle="collapse" href="#tables">
                   <i class="fas fa-table"></i>
-                  <p>Tables</p>
+                  <p>Tabel</p>
                   <span class="caret"></span>
                 </a>
                 <div class="collapse" id="tables">
@@ -70,12 +65,6 @@
                     </li>
                   </ul>
                 </div>
-              </li>
-              <li class="nav-item">
-                <a data-bs-toggle="collapse" href="#charts">
-                  <i class="far fa-chart-bar"></i>
-                  <p>Hasil Voting</p>
-                </a>
               </li>
             </ul>
           </div>

@@ -95,13 +95,17 @@
                                     <button data-id="{{ $data->id }}" data-bs-toggle="modal"
                                         data-bs-target="#exampleModal"
                                         class="btn btn-primary fw-bolder fs-8 view-manifesto">Visi & Misi</button>
-                                    <form method="POST" action="{{ route('vote.store') }}" class="d-inline">
-                                        @csrf
-                                        <input type="hidden" name="id_pemilih" value="{{ $pemilih->id }}">
-                                        <input type="hidden" name="id_kandidat" value="{{ $data->id }}">
-                                        <button type="submit" class="btn btn-danger fw-bolder px-4 ms-2 fs-8">Vote
-                                        </button>
-                                    </form>
+                                    @if ($pemilih->status == 0)
+                                        <form method="POST" action="{{ route('vote.store') }}" class="d-inline">
+                                            @csrf
+                                            <input type="hidden" name="id_pemilih" value="{{ $pemilih->id }}">
+                                            <input type="hidden" name="id_kandidat" value="{{ $data->id }}">
+                                            <button type="submit"
+                                                class="btn btn-danger fw-bolder px-4 ms-2 fs-8">Vote</button>
+                                        </form>
+                                    @else
+                                        <button class="btn btn-secondary fw-bolder px-4 ms-2 fs-8" disabled>Already Voted</button>
+                                    @endif
                                 </div>
                             </div>
                         @endforeach
