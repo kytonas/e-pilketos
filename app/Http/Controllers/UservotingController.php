@@ -32,9 +32,9 @@ class UservotingController extends Controller
 
 // Menyiapkan data untuk Chart.js
         $labels = $kandidatData->pluck('no_urut')->toArray();
-        $data = $kandidatData->pluck('suara')->toArray();
+        $hasil = $kandidatData->pluck('suara')->toArray();
 
-        return view('uservoting.index', compact('kandidat', 'pemilih', 'labels', 'data'));
+        return view('uservoting.index', compact('kandidat', 'pemilih', 'labels', 'hasil'));
 
     }
 
@@ -46,7 +46,17 @@ class UservotingController extends Controller
 
     public function success()
     {
-        return view('uservoting.success');
+        $kandidatData = Kandidat::select('no_urut', 'suara')->get();
+
+// Total suara
+        $totalSuara = $kandidatData->sum('suara');
+
+// Menyiapkan data untuk Chart.js
+        $labels = $kandidatData->pluck('no_urut')->toArray();
+        $hasil = $kandidatData->pluck('suara')->toArray();
+
+        return view('uservoting.success', compact('labels', 'hasil'));
+
     }
 
     public function store(Request $request)

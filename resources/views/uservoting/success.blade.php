@@ -60,14 +60,26 @@
                             </p>
                         </div>
                     </div>
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title">Perhitungan Sementara</div>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-container">
+                                    <canvas id="myChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+            @include('include.backend.footer')
         </div>
     </div>
     
 </div>
-@include('include.backend.footer')
-   
+
 
     <!-- Core JS Files -->
     <script src="{{ asset('backend/assets/js/core/jquery-3.7.1.min.js') }}"></script>
@@ -85,6 +97,32 @@
 
     <!-- Chart Circle -->
     <script src="{{ asset('backend/assets/js/plugin/chart-circle/circles.min.js') }}"></script>
+    <script>
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: @json($labels),
+                datasets: [{
+                    label: 'Jumlah Suara (%)',
+                    data: @json($hasil),
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) { return value + "%" }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
 
     <!-- Datatables -->
     <script src="{{ asset('backend/assets/js/plugin/datatables/datatables.min.js') }}"></script>
