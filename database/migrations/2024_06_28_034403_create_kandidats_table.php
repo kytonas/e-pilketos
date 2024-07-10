@@ -20,10 +20,11 @@ return new class extends Migration
             $table->string('nama_wakil');
             $table->string('kelas');
             $table->text('visi');
-            $table->text('misi');
+            $table->text('misi'); 
             $table->string('jurusan');
             $table->string('tahun_ajaran');
             $table->string('foto');
+            $table->string('foto_wakil');
             $table->integer('suara')->default(0);
             $table->timestamps();
         });

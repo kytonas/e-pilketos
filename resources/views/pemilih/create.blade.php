@@ -134,14 +134,6 @@
                                                     <label for="password_confirmation">Konfirmasi Password</label>
                                                     <input type="password" class="form-control" name="password_confirmation" required/>
                                                 </div> 
-                                                <div class="form-group">
-                                                    <label for="status" class="form-label">Status</label>
-                                                    <select id="status" name="status" class="form-select" required>
-                                                        <option value="" disabled selected>Pilih</option>
-                                                        <option value=1>Sudah Memilih</option>
-                                                        <option value=0>Belum Memilih</option>
-                                                    </select>
-                                                </div>
                                             </div>
                                         </div>
                                 </div>

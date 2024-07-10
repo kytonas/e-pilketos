@@ -52,7 +52,6 @@ class PemilihController extends Controller
         $pemilih->kelas = $request->kelas;
         $pemilih->jurusan = $request->jurusan;
         $pemilih->password = Hash::make($request->password);
-        $pemilih->status = $request->status;
         $pemilih->save();
 
         return redirect()->route('pemilih.index')->with('success', 'Data Berhasil ditambah!');
@@ -100,7 +99,7 @@ class PemilihController extends Controller
         if ($request->password) {
             $pemilih->password = Hash::make($request->password);
         }
-        $pemilih->status = $request->status;
+
         $pemilih->save();
 
         return redirect()->route('pemilih.index')->with('success', 'Data Berhasil diubah!');

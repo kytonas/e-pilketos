@@ -108,7 +108,7 @@
                                 </div>
                                 <div class="card-body">
                                     <form action="{{ route('kandidat.update', $kandidat->id) }}" method="POST"
-                                        >
+                                        enctype="multipart/form-data">
                                         @csrf
                                         @method('PUT')
                                         <div class="row">
@@ -145,11 +145,6 @@
                                                         {{$kandidat->misi}}
                                                 </textarea>
                                                 </div>
-                                                {{-- <div class="form-group">
-                                                    <label for="jurusan">Jurusan</label>
-                                                    <input type="text" class="form-control" name="jurusan" 
-                                                    value="{{$kandidat->jurusan}}" />
-                                                </div> --}}
                                                 <div class="form-group">
                                                     <label for="jurusan" class="form-label">Jurusan</label>
                                                     <select id="jurusan" name="jurusan" class="form-select" required>
@@ -171,7 +166,14 @@
                                                     <input type="file" class="form-control" name="foto" 
                                                     value="{{$kandidat->foto}}"/><br>
                                                     <img src="{{ asset('/images/kandidat/' . $kandidat->foto) }}"
-                                                         width="500px">
+                                                         width="200px">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="exampleFormControlFile1">Foto Wakil</label><br>
+                                                    <input type="file" class="form-control" name="foto_wakil" 
+                                                    value="{{$kandidat->foto_wakil}}"/><br>
+                                                    <img src="{{ asset('/images/kandidat/wakil/' . $kandidat->foto_wakil) }}"
+                                                         width="200px">
                                                 </div>
                                                 <div class="card-action">
                                                     <button class="btn btn-success" type="submit">Ubah</button>

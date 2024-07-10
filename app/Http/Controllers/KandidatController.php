@@ -57,6 +57,7 @@ class KandidatController extends Controller
         $kandidat->jurusan = $request->jurusan;
         $kandidat->tahun_ajaran = $request->tahun_ajaran;
         $kandidat->foto = $request->foto;
+        $kandidat->foto_wakil = $request->foto_wakil;
 
         //upload image
         if ($request->hasFile('foto')) {
@@ -66,6 +67,14 @@ class KandidatController extends Controller
             $kandidat->foto = $name;
 
         }
+        if ($request->hasFile('foto_wakil')) {
+            $img = $request->file('foto_wakil');
+            $name = rand(1000, 9999) . $img->getClientOriginalName();
+            $img->move('images/kandidat/wakil', $name);
+            $kandidat->foto_wakil = $name;
+
+        }
+
         $kandidat->save();
         return redirect()->route('kandidat.index')->with('success', 'Data Berhasil ditambah!');
     }
@@ -123,12 +132,20 @@ class KandidatController extends Controller
         $kandidat->tahun_ajaran = $request->tahun_ajaran;
 
         //upload image
-        if ($request->hasFile('foto')) { 
-            $kandidat -> deleteImage();
+        if ($request->hasFile('foto')) {
+            $kandidat->deleteImage();
             $img = $request->file('foto');
             $name = rand(1000, 9999) . $img->getClientOriginalName();
             $img->move('images/kandidat', $name);
             $kandidat->foto = $name;
+
+        }
+        if ($request->hasFile('foto_wakil')) {
+            $kandidat->deleteImage();
+            $img_wakil = $request->file('foto_wakil');
+            $name_wakil = rand(1000, 9999) . $img_wakil->getClientOriginalName();
+            $img_wakil->move('images/kandidat/wakil', $name_wakil);
+            $kandidat->foto_wakil = $name_wakil;
 
         }
         $kandidat->save();
@@ -145,7 +162,7 @@ class KandidatController extends Controller
     public function destroy($id)
     {
         $kandidat = Kandidat::findOrFail($id);
-        $kandidat -> delete();
+        $kandidat->delete();
         return redirect()->route('kandidat.index');
     }
 }

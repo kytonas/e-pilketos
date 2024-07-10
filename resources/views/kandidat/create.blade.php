@@ -150,6 +150,10 @@
                                                     <label for="exampleFormControlFile1">Foto</label>
                                                     <input type="file" class="form-control" name="foto" />
                                                 </div>
+                                                <div class="form-group">
+                                                    <label for="exampleFormControlFile1">Foto Wakil</label>
+                                                    <input type="file" class="form-control" name="foto_wakil" />
+                                                </div>
                                             </div>
                                         </div>
                                 </div>

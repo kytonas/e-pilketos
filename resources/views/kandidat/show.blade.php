@@ -159,7 +159,12 @@
                                                 <div class="form-group">
                                                     <label for="exampleFormControlFile1">Foto</label><br>
                                                     <img src="{{ asset('/images/kandidat/' . $kandidat->foto) }}"
-                                                         width="500px">
+                                                         width="200px">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="exampleFormControlFile1">Foto Wakil</label><br>
+                                                    <img src="{{ asset('/images/kandidat/wakil/' . $kandidat->foto_wakil) }}"
+                                                         width="200px">
                                                 </div>
                                                 <div class="card-action">
                                                     <a href="{{ url('admin/kandidat') }}" class="btn btn-danger">Kembali</a>

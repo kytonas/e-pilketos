@@ -82,8 +82,13 @@
                         @foreach ($kandidat as $data)
                             <div class="col-lg-4 col-md-6 mb-4">
                                 <div class="text-center votcard shadow-md bg-white p-4 pt-5 h-100">
-                                    <img class="rounded-pill shadow-md p-2"
-                                        src="{{ asset('images/kandidat/' . $data->foto) }}" alt="">
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <img class="rounded-pill shadow-md p-2 me-3"
+                                            src="{{ asset('images/kandidat/' . $data->foto) }}" alt="Foto Ketua">
+                                        <img class="rounded-pill shadow-md p-2"
+                                            src="{{ asset('images/kandidat/wakil/' . $data->foto_wakil) }}"
+                                            alt="Foto Wakil Ketua">
+                                    </div>
                                     <h4 class="mt-3 fs-5 mb-1 fw-bold">{{ $data->no_urut }}</h4>
                                     <h6 class="fs-7">Ketua :<span class="text-primary fw-bold">
                                             {{ $data->nama_ketua }}</span></h6>
@@ -101,10 +106,14 @@
                                             <input type="hidden" name="id_pemilih" value="{{ $pemilih->id }}">
                                             <input type="hidden" name="id_kandidat" value="{{ $data->id }}">
                                             <button type="submit"
-                                                class="btn btn-danger fw-bolder px-4 ms-2 fs-8">Vote</button>
+                                                class="btn btn-danger fw-bolder px-4 ms-2 fs-8"
+                                                onclick="return confirm('Apakah anda yakin ingin memiilih kandidat ini ?')">
+                                                Vote
+                                            </button>
                                         </form>
                                     @else
-                                        <button class="btn btn-secondary fw-bolder px-4 ms-2 fs-8" disabled>Already Voted</button>
+                                        <button class="btn btn-secondary fw-bolder px-4 ms-2 fs-8" disabled>Already
+                                            Voted</button>
                                     @endif
                                 </div>
                             </div>
@@ -180,7 +189,9 @@
                     y: {
                         beginAtZero: true,
                         ticks: {
-                            callback: function(value) { return value + "%" }
+                            callback: function(value) {
+                                return value + "%"
+                            }
                         }
                     }
                 }

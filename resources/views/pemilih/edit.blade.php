@@ -131,11 +131,6 @@
                                                     </select>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="password">Password</label>
-                                                    <input type="password" class="form-control" name="password" 
-                                                    value="{{$pemilih->password}}"/>
-                                                </div>
-                                                <div class="form-group">
                                                     <label for="status" class="form-label">Status</label>
                                                     <select id="status" name="status" class="form-select" > 
                                                         <option value="">{{$pemilih->status}}</option>
