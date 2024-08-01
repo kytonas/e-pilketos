@@ -114,8 +114,13 @@
                                                     <input type="text" class="form-control" name="nis" required/>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="kelas">Kelas</label>
-                                                    <input type="text" class="form-control" name="kelas" required/>
+                                                    <label for="kelas" class="form-label">Kelas</label>
+                                                    <select id="kelas" name="kelas" class="form-select" required>
+                                                        <option value="" disabled selected>Pilih</option>
+                                                        <option value="X">X</option>
+                                                        <option value="XI">XI</option>
+                                                        <option value="XII">XII</option>
+                                                    </select>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="jurusan" class="form-label">Jurusan</label>
@@ -130,10 +135,6 @@
                                                     <label for="password">Password</label>
                                                     <input type="password" class="form-control" name="password" required/>
                                                 </div>
-                                                <div class="form-group">
-                                                    <label for="password_confirmation">Konfirmasi Password</label>
-                                                    <input type="password" class="form-control" name="password_confirmation" required/>
-                                                </div> 
                                             </div>
                                         </div>
                                 </div>
@@ -142,7 +143,7 @@
                                     <a href="{{ url('admin/pemilih') }}" class="btn btn-danger">Kembali</a>
                                     </form>
                                 </div>
-                            </div>
+                            </div> 
                         </div>
                     </div>
                 </div>

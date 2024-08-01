@@ -65,7 +65,9 @@ class SuaraController extends Controller
     public function show($id)
     {
         $suara = Suara::findOrFail($id);
-        return view('suara.show', compact('suara'));
+        $kandidat = Kandidat::find($suara->id_kandidat);
+        $pemilih = Pemilih::find($suara->id_pemilih);
+        return view('suara.show', compact('suara', 'kandidat', 'pemilih'));
     }
 
     /**

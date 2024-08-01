@@ -1,4 +1,18 @@
 <!-- Navbar Header -->
+<head>
+    <style>
+        .logout-item {
+            text-align: center;
+        }
+
+        .logout-item  {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+</head>
+
 <nav class="navbar navbar-header navbar-header-transparent navbar-expand-lg border-bottom">
     <div class="container-fluid">
         <nav class="navbar navbar-header-left navbar-expand-lg navbar-form nav-search p-0 d-none d-lg-flex">
@@ -44,8 +58,8 @@
                                 </div>
                             </div>
                         </li>
-                        <li>
-                            <a href="{{ route('logout') }}"
+                        <li class="logout-item">
+                            <a href="{{ route('logout') }} class="logout-link"
                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                 
                                 Logout

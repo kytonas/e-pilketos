@@ -106,13 +106,6 @@
                                         @endif
                                 <div class="card-header">
                                     <h4 class="card-title">Suara</h4>
-                                    <div class="d-flex align-items-center">
-                                        <a href="{{ route('suara.create') }}"
-                                            class="btn btn-primary btn-round ms-auto" data-bs-target="#addRowModal">
-                                            <i class="fa fa-plus"></i>
-                                            Tambah Data
-                                        </a>
-                                    </div>
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
@@ -142,8 +135,6 @@
                                                             @csrf
                                                             @method('DELETE')
                                                             <td>
-                                                                <a href="{{ route('suara.edit', $data->id) }}"
-                                                                    class="btn btn-success">Ubah</a>
                                                                 <a href="{{ route('suara.show', $data->id) }}"
                                                                     class="btn btn-warning">Lihat</a>
                                                                 <button type="submit" class="btn btn-danger"

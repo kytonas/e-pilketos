@@ -19,7 +19,7 @@
   <div class="container">
     <div class="card border-light-subtle shadow-sm">
       <div class="row g-0">
-        <div class="col-12 col-md-6 text-bg-primary">
+        <div class="col-12 col-md-6 ">
           <div class="d-flex align-items-center justify-content-center h-100">
             <div class="col-10 col-xl-8 py-3">
               <img class="img-fluid rounded mb-4" loading="lazy" src="{{asset('img/logo-custom__1_-removebg-preview.png')}}" width="245" height="80" alt="BootstrapBrain Logo">
@@ -43,7 +43,7 @@
               <div class="row gy-3 gy-md-4 overflow-hidden">
                 <div class="col-12">
                   <label for="nis" class="form-label">NIS<span class="text-danger">*</span></label>
-                  <input type="text" class="form-control" name="nis" id="nis" required>
+                  <input type="text" class="form-control" name="nis" id="nis" placeholder="Masukkan NIS dengan benar" required>
                 </div>
                 <div class="col-12">
                   <label for="password" class="form-label">Password <span class="text-danger">*</span></label>

@@ -104,15 +104,15 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <label for="pemilih">ID Pemilih</label>
+                                                    <label for="pemilih">Pemilih</label>
                                                     <input type="text" class="form-control" name="pemilih" 
-                                                    value="{{$suara->id_pemilih}}" disabled/>
+                                                    value="{{$pemilih->nama}}" disabled/>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="kandidat">ID Kandidat</label>
+                                                    <label for="kandidat">Kandidat</label>
                                                     <input type="text" class="form-control" name="kandidat" 
-                                                    value="{{$suara->id_kandidat}}" disabled/>
-                                                </div>
+                                                    value="{{$kandidat->nama_ketua}} & {{$kandidat->nama_wakil}}" disabled/>
+                                                 </div>
                                             </div>
                                         </div>
                                 </div>

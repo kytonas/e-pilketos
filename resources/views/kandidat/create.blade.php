@@ -120,8 +120,13 @@
                                                     <input type="text" class="form-control" name="nama_wakil" />
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="kelas">Kelas</label>
-                                                    <input type="text" class="form-control" name="kelas" />
+                                                     <label for="kelas" class="form-label">Kelas</label>
+                                                    <select id="kelas" name="kelas" class="form-select" required>
+                                                        <option value="" disabled selected>Pilih</option>
+                                                        <option value="X">X</option>
+                                                        <option value="XI">XI</option>
+                                                        <option value="XII">XII</option>
+                                                    </select>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="visi">Visi</label>
